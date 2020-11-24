@@ -12,9 +12,10 @@ const getPairs = () => {
 }
 
 const getThemes = (pairs = []) => {
-    const pairsWithThemes = [...pairs];
-    for (let i = 0; i < pairsWithThemes.length; i++) {
-        pairsWithThemes[i].push(themes[i]);
+    const pairsCopy = [...pairs];
+    const pairsWithThemes = [];
+    for (let i = 0; i < pairsCopy.length; i++) {
+        pairsWithThemes.push([pairsCopy[i].join(' i '), themes[i]]);
     }
     return pairsWithThemes;
 }
