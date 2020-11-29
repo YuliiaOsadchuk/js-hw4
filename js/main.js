@@ -14,30 +14,29 @@ const getPairs = () => {
 const getThemes = (pairs = []) => {
     const pairsCopy = [...pairs];
     const pairsWithThemes = [];
-    for (let i = 0; i < pairsCopy.length; i++) {
-        pairsWithThemes.push([pairsCopy[i].join(' i '), themes[i]]);
-    }
+    pairsCopy.forEach((pair, index) => {
+        pairsWithThemes[index] = [pair.join(' i '), themes[index]];
+    })
     return pairsWithThemes;
 }
 
 const getMarks = () => {
     const studentMark = [];
-    for (let i = 0; i < students.length; i++) {
-        studentMark.push([students[i], marks[i]]);
-    }
+    students.forEach((student, index) => {
+        studentMark[index] = [student, marks[index]];
+    })
     return studentMark;
 }
 
 const getPairMark = (pairsThemes = []) => {
     const pairMark = [...pairsThemes];
+    const minMark = 1;
+    const maxMark = 5;
 
-    for (let i = 0; i < pairMark.length; i++) {
-        const minMark = 1;
-        const maxMark = 5;
+    pairMark.forEach((pair) => {
         const randomMark = minMark + Math.random() * (maxMark + 1 - minMark);
-        pairMark[i].push(Math.floor(randomMark));
-    }
-
+        pair.push(Math.floor(randomMark));
+    })
     return pairMark;
 }
 
